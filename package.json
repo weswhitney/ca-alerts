@@ -1,0 +1,11 @@
+{
+  "name": "ca-alerts",
+  "version": "1.0.0",
+  "description": "Cron job for checking for alerts the with serverless `schedule` event",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "node-fetch": "^2.6.7"
+  }
+}

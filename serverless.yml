@@ -1,0 +1,17 @@
+service: ca-alerts
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  profile: default
+  environment:
+    WEATHER_BIT_API_KEY: a97fb62b7b724d56bc556d9da2bdf593
+
+functions:
+  rateHandler:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every hour
+      - schedule: rate(1 hour)
