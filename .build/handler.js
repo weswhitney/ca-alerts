@@ -42,20 +42,21 @@ require("dotenv").config();
 var AWS = require("aws-sdk");
 function run(_event, context, _callback) {
     return __awaiter(this, void 0, void 0, function () {
-        var alert, sns, params;
+        var alert, msg, sns, params;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, (0, forecast_1.default)()];
                 case 1:
                     alert = _a.sent();
-                    console.log("alert ", alert.alerts[0].description);
+                    msg = alert.alerts[0].description;
                     sns = new AWS.SNS();
                     params = {
-                        Message: "will be forecast",
+                        Message: msg,
                         Subject: "Test SNS From Lambda",
                         TopicArn: "arn:aws:sns:us-east-1:979673662712:topic-for-pusher-lambda",
                     };
                     sns.publish(params, context.done);
+                    console.log("published msg ", msg);
                     return [2 /*return*/];
             }
         });

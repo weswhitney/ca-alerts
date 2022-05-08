@@ -9,12 +9,13 @@ export async function run(
   _callback: (arg0: null, arg1: { success: boolean }) => void
 ) {
   const alert = await forecast()
-  console.log("alert ", alert.alerts[0].description)
+  const msg = alert.alerts[0].description
   var sns = new AWS.SNS()
   var params = {
-    Message: "will be forecast",
+    Message: msg,
     Subject: "Test SNS From Lambda",
     TopicArn: "arn:aws:sns:us-east-1:979673662712:topic-for-pusher-lambda",
   }
   sns.publish(params, context.done)
+  console.log("published msg ", msg)
 }
