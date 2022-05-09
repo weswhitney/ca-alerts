@@ -14,7 +14,7 @@ export async function run(
   var params = {
     Message: msg,
     Subject: "Test SNS From Lambda",
-    TopicArn: "<redacted>",
+    TopicArn: process.env.TOPIC_ARN,
   }
   sns.publish(params, context.done)
   console.log("published msg ", msg)
