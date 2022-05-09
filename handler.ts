@@ -1,6 +1,6 @@
+require("dotenv").config()
 import forecast from "./lib/forecast"
 
-require("dotenv").config()
 var AWS = require("aws-sdk")
 
 export async function run(
