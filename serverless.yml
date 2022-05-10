@@ -9,8 +9,6 @@ provider:
   name: aws
   runtime: nodejs14.x
   profile: default
-  environment:
-    WEATHER_BIT_API_KEY: <add in lambda>
 
 functions:
   rateHandler:
